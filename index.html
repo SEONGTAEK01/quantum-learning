@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>양자역학 학습 사이트 - Quantum Mechanics Learning Hub</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="양자역학을 쉽고 재미있게 배우는 인터랙티브 학습 사이트. 파동-입자 이중성, 불확정성 원리, 양자 중첩, 양자 얽힘 등 핵심 개념을 시각적 애니메이션과 실험 시뮬레이션으로 학습하세요.">
+    <meta name="keywords" content="양자역학, 양자물리학, 물리학 교육, 인터랙티브 학습, 파동-입자 이중성, 하이젠베르크 불확정성 원리, 양자 중첩, 양자 얽힘, 이중 슬릿 실험, 슈뢰딩거의 고양이, 양자 컴퓨팅, 양자 암호">
+    <meta name="author" content="Quantum Learning Hub">
+    <meta name="robots" content="index, follow">
+    <meta name="language" content="Korean">
+    <link rel="canonical" href="https://your-domain.github.io/quantum-learning/">
+
+    <!-- Open Graph Tags for Social Media -->
+    <meta property="og:title" content="양자역학 학습 사이트 - Quantum Mechanics Learning Hub">
+    <meta property="og:description" content="복잡한 양자역학을 쉽고 재미있게 배워보세요. 시각적 자료와 인터랙티브 애니메이션으로 양자물리학의 핵심 개념들을 이해할 수 있습니다.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://your-domain.github.io/quantum-learning/">
+    <meta property="og:image" content="https://your-domain.github.io/quantum-learning/og-image.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:site_name" content="Quantum Learning Hub">
+    <meta property="og:locale" content="ko_KR">
+
+    <!-- Twitter Card Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="양자역학 학습 사이트 - Quantum Mechanics Learning Hub">
+    <meta name="twitter:description" content="양자역학을 쉽고 재미있게 배우는 인터랙티브 학습 사이트">
+    <meta name="twitter:image" content="https://your-domain.github.io/quantum-learning/og-image.jpg">
+
+    <!-- Additional SEO Tags -->
+    <meta name="theme-color" content="#667eea">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- Google AdSense -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+            crossorigin="anonymous"></script>
+    <!-- 실제 AdSense 승인 후 위의 ca-pub-XXXXXXXXXXXXXXXX를 실제 Publisher ID로 변경하세요 -->
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "EducationalOrganization",
+        "name": "Quantum Learning Hub",
+        "description": "양자역학을 쉽고 재미있게 배우는 인터랙티브 학습 사이트",
+        "url": "https://your-domain.github.io/quantum-learning/",
+        "logo": "https://your-domain.github.io/quantum-learning/logo.png",
+        "sameAs": [
+            "https://github.com/your-username/quantum-learning"
+        ],
+        "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "customer service",
+            "availableLanguage": ["Korean", "English"]
+        },
+        "educationalCredentialAwarded": "자가학습 완료",
+        "hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "양자역학 학습 과정",
+            "itemListElement": [
+                {
+                    "@type": "Course",
+                    "name": "양자역학 기초 개념",
+                    "description": "파동-입자 이중성, 불확정성 원리, 양자 중첩, 양자 얽힘",
+                    "provider": {
+                        "@type": "Organization",
+                        "name": "Quantum Learning Hub"
+                    }
+                },
+                {
+                    "@type": "Course",
+                    "name": "양자역학 실험",
+                    "description": "이중 슬릿 실험, 슈뢰딩거의 고양이 사고실험",
+                    "provider": {
+                        "@type": "Organization",
+                        "name": "Quantum Learning Hub"
+                    }
+                },
+                {
+                    "@type": "Course",
+                    "name": "양자역학 응용",
+                    "description": "양자 컴퓨팅, 양자 암호, MRI, 양자 센서",
+                    "provider": {
+                        "@type": "Organization",
+                        "name": "Quantum Learning Hub"
+                    }
+                }
+            ]
+        }
+    }
+    </script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <i class="fas fa-atom"></i>
+                <span>Quantum Learning</span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home">홈</a></li>
+                <li><a href="#basics">기초개념</a></li>
+                <li><a href="#experiments">실험</a></li>
+                <li><a href="#applications">응용</a></li>
+                <li><a href="#resources">자료</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Header Banner Advertisement -->
+    <div class="header-ad-banner">
+        <div class="container">
+            <!-- Google AdSense - Header Banner (728x90) -->
+            <ins class="adsbygoogle header-banner-ad"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="1234567890"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <main>
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <div class="hero-text">
+                    <h1>양자역학의 신비로운 세계</h1>
+                    <p>복잡한 양자역학을 쉽고 재미있게 배워보세요. 시각적 자료와 인터랙티브 애니메이션으로 함께합니다.</p>
+                    <button class="cta-button" onclick="scrollToSection('basics')">
+                        <i class="fas fa-play"></i>
+                        학습 시작하기
+                    </button>
+                </div>
+                <div class="hero-visual">
+                    <div class="atom-animation">
+                        <div class="nucleus"></div>
+                        <div class="electron-orbit orbit-1">
+                            <div class="electron"></div>
+                        </div>
+                        <div class="electron-orbit orbit-2">
+                            <div class="electron"></div>
+                        </div>
+                        <div class="electron-orbit orbit-3">
+                            <div class="electron"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="basics" class="section">
+            <div class="container">
+                <div class="content-with-sidebar">
+                    <div class="main-content">
+                        <h2>양자역학 기초 개념</h2>
+
+                        <div class="concept-grid">
+                    <div class="concept-card" data-concept="wave-particle">
+                        <div class="concept-icon">
+                            <i class="fas fa-wave-square"></i>
+                        </div>
+                        <h3>파동-입자 이중성</h3>
+                        <p>빛과 물질이 파동과 입자의 성질을 동시에 갖는다는 개념</p>
+                        <div class="wave-particle-demo">
+                            <canvas id="waveParticleCanvas" width="300" height="150"></canvas>
+                            <button onclick="toggleWaveParticle()">파동/입자 전환</button>
+                        </div>
+                        <div class="references">
+                            <h4>참고 자료:</h4>
+                            <ul>
+                                <li><a href="https://doi.org/10.1119/1.2338548" target="_blank">De Broglie wavelength (American Journal of Physics)</a></li>
+                                <li><a href="https://www.nobelprize.org/prizes/physics/1929/broglie/lecture/" target="_blank">Louis de Broglie Nobel Lecture</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="concept-card" data-concept="uncertainty">
+                        <div class="concept-icon">
+                            <i class="fas fa-question-circle"></i>
+                        </div>
+                        <h3>하이젠베르크 불확정성 원리</h3>
+                        <p>위치와 운동량을 동시에 정확히 측정할 수 없다는 원리</p>
+                        <div class="uncertainty-demo">
+                            <div class="position-momentum-viz">
+                                <div class="slider-container">
+                                    <label>위치 정확도</label>
+                                    <input type="range" id="positionSlider" min="1" max="100" value="50" oninput="updateUncertainty()">
+                                </div>
+                                <div class="uncertainty-display">
+                                    <div class="position-bar"></div>
+                                    <div class="momentum-bar"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="formula">
+                            Δx · Δp ≥ ℏ/2
+                        </div>
+                        <div class="references">
+                            <h4>참고 자료:</h4>
+                            <ul>
+                                <li><a href="https://doi.org/10.1007/BF01391200" target="_blank">Heisenberg's Original Paper (1927)</a></li>
+                                <li>Griffiths, D. J. "Introduction to Quantum Mechanics" Chapter 1</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="concept-card" data-concept="superposition">
+                        <div class="concept-icon">
+                            <i class="fas fa-layer-group"></i>
+                        </div>
+                        <h3>양자 중첩</h3>
+                        <p>양자 상태가 여러 상태의 선형결합으로 존재할 수 있다는 원리</p>
+                        <div class="superposition-demo">
+                            <div class="qubit-sphere">
+                                <canvas id="blochSphere" width="200" height="200"></canvas>
+                            </div>
+                            <div class="state-controls">
+                                <button onclick="setState('0')">|0⟩</button>
+                                <button onclick="setState('1')">|1⟩</button>
+                                <button onclick="setState('plus')">|+⟩</button>
+                                <button onclick="setState('minus')">|-⟩</button>
+                            </div>
+                        </div>
+                        <div class="formula">
+                            |ψ⟩ = α|0⟩ + β|1⟩
+                        </div>
+                        <div class="references">
+                            <h4>참고 자료:</h4>
+                            <ul>
+                                <li>Nielsen & Chuang, "Quantum Computation and Quantum Information" Chapter 1</li>
+                                <li><a href="https://quantum.country/" target="_blank">Quantum Country (Andy Matuschak)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="concept-card" data-concept="entanglement">
+                        <div class="concept-icon">
+                            <i class="fas fa-link"></i>
+                        </div>
+                        <h3>양자 얽힘</h3>
+                        <p>두 개 이상의 입자가 서로 연결되어 하나의 상태를 측정하면 다른 입자의 상태도 즉시 결정되는 현상</p>
+                        <div class="entanglement-demo">
+                            <div class="particle-pair">
+                                <div class="particle particle-a" id="particleA">
+                                    <div class="spin-arrow"></div>
+                                    <span>입자 A</span>
+                                </div>
+                                <div class="entanglement-line"></div>
+                                <div class="particle particle-b" id="particleB">
+                                    <div class="spin-arrow"></div>
+                                    <span>입자 B</span>
+                                </div>
+                            </div>
+                            <button onclick="measureEntanglement()">측정하기</button>
+                            <div class="measurement-result" id="measurementResult"></div>
+                        </div>
+                        <div class="references">
+                            <h4>참고 자료:</h4>
+                            <ul>
+                                <li><a href="https://doi.org/10.1103/PhysRev.47.777" target="_blank">Einstein-Podolsky-Rosen Paradox (1935)</a></li>
+                                <li><a href="https://doi.org/10.1103/PhysRevLett.49.1804" target="_blank">Bell's Theorem Experimental Verification</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                        </div>
+                    </div>
+
+                    <!-- Sidebar -->
+                    <aside class="sidebar">
+                        <!-- Sidebar Advertisement -->
+                        <div class="sidebar-ad">
+                            <h4>📚 추천 도서</h4>
+                            <!-- Google AdSense - Sidebar Rectangle (300x250) -->
+                            <ins class="adsbygoogle"
+                                 style="display:block"
+                                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                                 data-ad-slot="0987654321"
+                                 data-ad-format="auto"
+                                 data-full-width-responsive="true"></ins>
+                            <script>
+                                 (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                        </div>
+
+                        <!-- Affiliate Marketing - Books -->
+                        <div class="affiliate-section">
+                            <h4>🎓 양자역학 학습 교재</h4>
+                            <div class="affiliate-items">
+                                <div class="affiliate-item">
+                                    <img src="https://image.aladin.co.kr/product/1/90/letslook/8972911542_f.jpg" alt="양자역학 교재" width="80">
+                                    <div class="affiliate-info">
+                                        <h5>그리피스 양자역학</h5>
+                                        <p>입문자를 위한 최고의 교재</p>
+                                        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=189542" target="_blank" class="affiliate-link">
+                                            📖 구매하기
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="affiliate-item">
+                                    <img src="https://image.aladin.co.kr/product/2/51/letslook/8934972912_f.jpg" alt="양자컴퓨팅 교재" width="80">
+                                    <div class="affiliate-info">
+                                        <h5>양자 컴퓨팅 & 정보</h5>
+                                        <p>Nielsen & Chuang의 명저</p>
+                                        <a href="https://www.aladin.co.kr/shop/wproduct.aspx?ItemId=251912" target="_blank" class="affiliate-link">
+                                            📖 구매하기
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Online Courses Affiliate -->
+                        <div class="affiliate-section">
+                            <h4>💻 온라인 강의</h4>
+                            <div class="course-items">
+                                <div class="course-item">
+                                    <h5>Coursera - 양자역학 기초</h5>
+                                    <p>세계 최고 대학의 강의</p>
+                                    <a href="https://www.coursera.org/learn/quantum-mechanics" target="_blank" class="affiliate-link">
+                                        🎥 수강하기
+                                    </a>
+                                </div>
+
+                                <div class="course-item">
+                                    <h5>edX - 양자 컴퓨팅</h5>
+                                    <p>MIT의 양자 컴퓨팅 강의</p>
+                                    <a href="https://www.edx.org/course/quantum-computation" target="_blank" class="affiliate-link">
+                                        🎥 수강하기
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Support Section -->
+                        <div class="support-section">
+                            <h4>☕ 사이트 후원하기</h4>
+                            <p>이 사이트가 도움이 되셨나요? 커피 한 잔의 후원으로 더 좋은 콘텐츠를 만들어가겠습니다!</p>
+
+                            <!-- Buy Me a Coffee Button -->
+                            <a href="https://www.buymeacoffee.com/quantumlearning" target="_blank" class="support-button coffee-button">
+                                <i class="fas fa-coffee"></i>
+                                Coffee 후원하기
+                            </a>
+
+                            <!-- Patreon Button -->
+                            <a href="https://www.patreon.com/quantumlearning" target="_blank" class="support-button patreon-button">
+                                <i class="fab fa-patreon"></i>
+                                Patreon 후원하기
+                            </a>
+
+                            <!-- 국내 후원 -->
+                            <div class="korea-support">
+                                <h5>🇰🇷 국내 후원</h5>
+                                <p>카카오페이: quantum-learning</p>
+                                <p>토스: @quantumhub</p>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter Signup -->
+                        <div class="newsletter-section">
+                            <h4>📧 뉴스레터 구독</h4>
+                            <p>새로운 양자역학 콘텐츠와 업데이트를 받아보세요!</p>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="이메일 주소를 입력하세요" required>
+                                <button type="submit">구독하기</button>
+                            </form>
+                        </div>
+                    </aside>
+                </div>
+            </div>
+        </section>
+
+        <section id="experiments" class="section">
+            <div class="container">
+                <h2>유명한 양자역학 실험</h2>
+
+                <div class="experiment-showcase">
+                    <div class="experiment-card">
+                        <h3>이중 슬릿 실험</h3>
+                        <div class="experiment-visual">
+                            <canvas id="doubleSlitCanvas" width="500" height="300"></canvas>
+                            <div class="controls">
+                                <button onclick="startDoubleSlitExperiment()">실험 시작</button>
+                                <button onclick="toggleDetector()">검출기 On/Off</button>
+                                <label>
+                                    <input type="checkbox" id="showWave" onchange="toggleWaveView()"> 파동 함수 보기
+                                </label>
+                            </div>
+                        </div>
+                        <div class="experiment-explanation">
+                            <p>전자나 광자를 이중 슬릿에 통과시키면 간섭 무늬가 나타나지만,
+                               어느 슬릿을 통과했는지 관측하면 간섭 무늬가 사라집니다.</p>
+                            <div class="video-reference">
+                                <h4>추천 영상:</h4>
+                                <a href="https://www.youtube.com/watch?v=p-MNSLsjjdo" target="_blank">
+                                    <i class="fab fa-youtube"></i>
+                                    Dr Quantum - Double Slit Experiment
+                                </a>
+                            </div>
+                        </div>
+                        <div class="references">
+                            <h4>학술 자료:</h4>
+                            <ul>
+                                <li>Feynman, R. P. "The Feynman Lectures on Physics" Vol. III, Chapter 1</li>
+                                <li><a href="https://doi.org/10.1119/1.1286663" target="_blank">Modern version of double-slit experiment (American Journal of Physics)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experiment-card">
+                        <h3>슈뢰딩거의 고양이</h3>
+                        <div class="schrodinger-demo">
+                            <div class="cat-box" id="catBox">
+                                <div class="cat-state" id="catState">
+                                    <div class="cat alive">😸</div>
+                                    <div class="cat dead">💀</div>
+                                    <div class="superposition-indicator">중첩 상태</div>
+                                </div>
+                                <div class="geiger-counter">
+                                    <div class="atom" id="radioactiveAtom"></div>
+                                    <div class="poison-bottle"></div>
+                                </div>
+                            </div>
+                            <button onclick="openBox()">상자 열기 (관측)</button>
+                            <button onclick="resetCat()">실험 초기화</button>
+                        </div>
+                        <div class="experiment-explanation">
+                            <p>양자 중첩의 역설을 보여주는 사고실험. 방사성 원자의 붕괴 여부에 따라
+                               고양이의 생사가 결정되며, 관측 전까지는 두 상태가 중첩되어 있습니다.</p>
+                        </div>
+                        <div class="references">
+                            <h4>원본 논문:</h4>
+                            <ul>
+                                <li><a href="https://doi.org/10.1007/BF01491891" target="_blank">Schrödinger, E. "Die gegenwärtige Situation in der Quantenmechanik" (1935)</a></li>
+                                <li>Wheeler, J. A. & Zurek, W. H. "Quantum Theory and Measurement" Princeton University Press</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="applications" class="section">
+            <div class="container">
+                <h2>양자역학의 현대적 응용</h2>
+
+                <div class="applications-grid">
+                    <div class="app-card">
+                        <div class="app-icon">💻</div>
+                        <h3>양자 컴퓨팅</h3>
+                        <p>큐비트를 이용해 기존 컴퓨터보다 훨씬 빠른 계산이 가능</p>
+                        <div class="quantum-circuit">
+                            <canvas id="quantumCircuit" width="300" height="150"></canvas>
+                        </div>
+                        <div class="companies">
+                            <strong>주요 기업:</strong> IBM, Google, Microsoft, IonQ
+                        </div>
+                        <div class="references">
+                            <ul>
+                                <li><a href="https://quantum-computing.ibm.com/" target="_blank">IBM Quantum Experience</a></li>
+                                <li><a href="https://doi.org/10.1038/nature23879" target="_blank">Quantum supremacy paper (Nature, 2019)</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-icon">🔒</div>
+                        <h3>양자 암호</h3>
+                        <p>양자역학적 성질을 이용한 완전히 안전한 통신</p>
+                        <div class="crypto-demo">
+                            <div class="key-distribution">
+                                <div class="alice">Alice</div>
+                                <div class="quantum-channel"></div>
+                                <div class="bob">Bob</div>
+                            </div>
+                            <button onclick="demonstrateQKD()">양자 키 분배 시연</button>
+                        </div>
+                        <div class="references">
+                            <ul>
+                                <li><a href="https://doi.org/10.1103/PhysRevLett.67.661" target="_blank">BB84 Protocol (Physical Review Letters)</a></li>
+                                <li>중국 양자 위성 "묵자호" 프로젝트</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-icon">🧲</div>
+                        <h3>MRI와 NMR</h3>
+                        <p>핵자기공명을 이용한 의료 영상 및 분자 구조 분석</p>
+                        <div class="mri-demo">
+                            <div class="magnetic-field">
+                                <div class="nucleus"></div>
+                                <div class="spin-states">
+                                    <div class="spin-up">↑</div>
+                                    <div class="spin-down">↓</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="references">
+                            <ul>
+                                <li>Levitt, M. H. "Spin Dynamics: Basics of Nuclear Magnetic Resonance"</li>
+                                <li><a href="https://www.nobelprize.org/prizes/medicine/2003/" target="_blank">2003 Nobel Prize in Physiology</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="app-card">
+                        <div class="app-icon">💎</div>
+                        <h3>양자 센서</h3>
+                        <p>극도로 정밀한 측정이 가능한 센서 기술</p>
+                        <div class="sensor-demo">
+                            <div class="nv-center">
+                                <div class="diamond-lattice"></div>
+                                <div class="defect-center"></div>
+                            </div>
+                        </div>
+                        <div class="applications-list">
+                            <ul>
+                                <li>중력파 검출 (LIGO)</li>
+                                <li>자기장 측정</li>
+                                <li>생체 신호 감지</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="resources" class="section">
+            <div class="container">
+                <h2>학습 자료 및 참고문헌</h2>
+
+                <div class="resources-grid">
+                    <div class="resource-category">
+                        <h3>📚 추천 도서</h3>
+                        <div class="book-list">
+                            <div class="book-item">
+                                <strong>입문서:</strong>
+                                <ul>
+                                    <li>"양자역학으로의 초대" - 고중권</li>
+                                    <li>"Quantum Mechanics: The Theoretical Minimum" - Leonard Susskind</li>
+                                    <li>"양자역학 이야기" - 김상욱</li>
+                                </ul>
+                            </div>
+                            <div class="book-item">
+                                <strong>전문서:</strong>
+                                <ul>
+                                    <li>"Introduction to Quantum Mechanics" - David Griffiths</li>
+                                    <li>"Principles of Quantum Mechanics" - R. Shankar</li>
+                                    <li>"Modern Quantum Mechanics" - J.J. Sakurai</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3>🎥 온라인 강의</h3>
+                        <div class="lecture-list">
+                            <div class="lecture-item">
+                                <a href="https://www.edx.org/course/quantum-mechanics-everyone" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    Quantum Mechanics for Everyone (Georgetown University)
+                                </a>
+                            </div>
+                            <div class="lecture-item">
+                                <a href="https://ocw.mit.edu/courses/physics/8-04-quantum-physics-i-spring-2016/" target="_blank">
+                                    <i class="fas fa-external-link-alt"></i>
+                                    MIT 8.04 Quantum Physics I
+                                </a>
+                            </div>
+                            <div class="lecture-item">
+                                <a href="https://www.youtube.com/playlist?list=PLUl4u3cNGP61-9PEhRognw5vryrSEVLPr" target="_blank">
+                                    <i class="fab fa-youtube"></i>
+                                    MIT 양자역학 강의 (YouTube)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3>🔬 연구 논문</h3>
+                        <div class="paper-list">
+                            <div class="paper-item">
+                                <a href="https://doi.org/10.1103/PhysRev.28.1049" target="_blank">
+                                    Dirac, P.A.M. "The Quantum Theory of the Electron" (1928)
+                                </a>
+                            </div>
+                            <div class="paper-item">
+                                <a href="https://doi.org/10.1007/BF01397394" target="_blank">
+                                    Born, M. "Zur Quantenmechanik der Stoßvorgänge" (1926)
+                                </a>
+                            </div>
+                            <div class="paper-item">
+                                <a href="https://doi.org/10.1103/PhysRev.40.749" target="_blank">
+                                    Einstein, A., Podolsky, B., & Rosen, N. "Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?" (1935)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="resource-category">
+                        <h3>🌐 유용한 웹사이트</h3>
+                        <div class="website-list">
+                            <div class="website-item">
+                                <a href="https://quantum.country/" target="_blank">
+                                    <i class="fas fa-globe"></i>
+                                    Quantum Country - Interactive Introduction
+                                </a>
+                            </div>
+                            <div class="website-item">
+                                <a href="https://qiskit.org/textbook/" target="_blank">
+                                    <i class="fas fa-globe"></i>
+                                    Qiskit Textbook
+                                </a>
+                            </div>
+                            <div class="website-item">
+                                <a href="https://quantum-computing.ibm.com/" target="_blank">
+                                    <i class="fas fa-globe"></i>
+                                    IBM Quantum Experience
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer Banner Advertisement -->
+    <div class="footer-ad-banner">
+        <div class="container">
+            <!-- Google AdSense - Footer Banner (728x90) -->
+            <ins class="adsbygoogle footer-banner-ad"
+                 style="display:inline-block;width:728px;height:90px"
+                 data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+                 data-ad-slot="1122334455"></ins>
+            <script>
+                 (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Quantum Learning Hub</h4>
+                    <p>양자역학을 쉽고 재미있게 배우는 공간</p>
+                </div>
+                <div class="footer-section">
+                    <h4>참고 자료</h4>
+                    <ul>
+                        <li><a href="https://www.nobelprize.org/prizes/physics/" target="_blank">Nobel Prize in Physics</a></li>
+                        <li><a href="https://arxiv.org/list/quant-ph/recent" target="_blank">arXiv Quantum Physics</a></li>
+                        <li><a href="https://journals.aps.org/" target="_blank">American Physical Society</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>연락처</h4>
+                    <p>학습에 대한 질문이나 제안사항이 있으시면 언제든 연락주세요.</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Quantum Learning Hub. 교육 목적으로 제작된 사이트입니다.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
