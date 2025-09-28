@@ -11,7 +11,10 @@
       "Bash(git remote add:*)",
       "Bash(git branch:*)",
       "Bash(git push:*)",
-      "Bash(awk:*)"
+      "Bash(awk:*)",
+      "Bash(cat:*)",
+      "Bash(pbcopy)",
+      "WebFetch(domain:seongtaek01.github.io)"
     ],
     "deny": [],
     "ask": []
