@@ -44,7 +44,7 @@ function drawWaveParticle() {
         // Add wave label
         ctx.fillStyle = '#667eea';
         ctx.font = '16px Inter';
-        ctx.fillText('파동 (Wave)', 10, 30);
+        ctx.fillText('Wave', 10, 30);
     } else {
         // Draw particles
         ctx.fillStyle = '#667eea';
@@ -63,7 +63,7 @@ function drawWaveParticle() {
         // Add particle label
         ctx.fillStyle = '#667eea';
         ctx.font = '16px Inter';
-        ctx.fillText('입자 (Particle)', 10, 30);
+        ctx.fillText('Particle', 10, 30);
     }
 }
 
@@ -181,10 +181,10 @@ function measureEntanglement() {
 
     // Show result
     result.innerHTML = `
-        <strong>측정 결과:</strong><br>
-        입자 A: ${spinA === 'up' ? '스핀 업 ↑' : '스핀 다운 ↓'}<br>
-        입자 B: ${spinB === 'up' ? '스핀 업 ↑' : '스핀 다운 ↓'}<br>
-        <em>즉시 상관관계 확인됨!</em>
+        <strong>Measurement Result:</strong><br>
+        Particle A: ${spinA === 'up' ? 'Spin Up ↑' : 'Spin Down ↓'}<br>
+        Particle B: ${spinB === 'up' ? 'Spin Up ↑' : 'Spin Down ↓'}<br>
+        <em>Instant correlation confirmed!</em>
     `;
 
     // Reset after 3 seconds
@@ -227,13 +227,13 @@ function drawDoubleSlitSetup(ctx) {
     // Labels
     ctx.fillStyle = '#fff';
     ctx.font = '12px Inter';
-    ctx.fillText('소스', 20, 160);
-    ctx.fillText('이중 슬릿', 120, 40);
-    ctx.fillText('스크린', 420, 40);
+    ctx.fillText('Source', 20, 160);
+    ctx.fillText('Double Slit', 120, 40);
+    ctx.fillText('Screen', 420, 40);
 
     // Slit labels
-    ctx.fillText('슬릿 1', 180, 145);
-    ctx.fillText('슬릿 2', 180, 165);
+    ctx.fillText('Slit 1', 180, 145);
+    ctx.fillText('Slit 2', 180, 165);
 }
 
 function animateDoubleSlitPattern(ctx) {
@@ -328,7 +328,7 @@ function drawInterferencePattern(ctx, frame) {
 function toggleDetector() {
     doubleSlitDetectorOn = !doubleSlitDetectorOn;
     const button = event.target;
-    button.textContent = doubleSlitDetectorOn ? '검출기 On' : '검출기 Off';
+    button.textContent = doubleSlitDetectorOn ? 'Detector On' : 'Detector Off';
     button.style.background = doubleSlitDetectorOn ? '#f44336' : '#667eea';
 }
 
@@ -360,7 +360,7 @@ function openBox() {
     // Add result text
     setTimeout(() => {
         const resultText = document.createElement('div');
-        resultText.textContent = result === 'alive' ? '고양이가 살아있습니다!' : '고양이가 죽었습니다!';
+        resultText.textContent = result === 'alive' ? 'The cat is alive!' : 'The cat is dead!';
         resultText.style.cssText = `
             position: absolute;
             bottom: 10px;
@@ -457,14 +457,14 @@ function demonstrateQKD() {
 
     // Animate key exchange
     alice.style.background = '#4caf50';
-    alice.textContent = 'Alice (전송 중...)';
+    alice.textContent = 'Alice (Sending...)';
 
     // Animate photons in channel
     channel.style.animation = 'pulse 0.5s ease-in-out 3';
 
     setTimeout(() => {
         bob.style.background = '#4caf50';
-        bob.textContent = 'Bob (수신 완료)';
+        bob.textContent = 'Bob (Received)';
 
         setTimeout(() => {
             alice.style.background = '#667eea';
@@ -565,8 +565,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // Educational tooltips
 function addTooltips() {
     const tooltipElements = [
-        { selector: '.formula', text: '이 공식들은 양자역학의 핵심 원리를 수학적으로 표현합니다.' },
-        { selector: '.references a', text: '클릭하여 원본 학술 자료를 확인하세요.' }
+        { selector: '.formula', text: 'These formulas mathematically express the core principles of quantum mechanics.' },
+        { selector: '.references a', text: 'Click to view original academic sources.' }
     ];
 
     tooltipElements.forEach(({ selector, text }) => {
