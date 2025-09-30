@@ -634,15 +634,14 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
-    // Smooth parallax effect for hero section (reduced intensity)
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const hero = document.querySelector('.hero');
-        if (hero && scrolled < window.innerHeight) {
-            // Only apply parallax when hero is visible, with reduced intensity
-            hero.style.transform = `translateY(${scrolled * 0.2}px)`;
-        }
-    });
+    // Disable parallax effect to prevent overlap issues
+    // window.addEventListener('scroll', () => {
+    //     const scrolled = window.pageYOffset;
+    //     const hero = document.querySelector('.hero');
+    //     if (hero && scrolled < window.innerHeight) {
+    //         hero.style.transform = `translateY(${scrolled * 0.2}px)`;
+    //     }
+    // });
 });
 
 // Responsive navigation toggle
