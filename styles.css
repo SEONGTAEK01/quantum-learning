@@ -78,6 +78,7 @@ body {
     color: white;
     position: relative;
     overflow: hidden;
+    z-index: 1;
 }
 
 .hero-content {
@@ -195,6 +196,8 @@ body {
 .section {
     padding: 100px 0;
     background: white;
+    position: relative;
+    z-index: 2;
 }
 
 .section:nth-child(even) {
@@ -954,8 +957,10 @@ body {
     background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
     padding: 2rem;
     border-radius: 15px;
-    margin-bottom: 2rem;
+    margin: 2rem 0;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    position: relative;
+    z-index: 3;
 }
 
 .intro-explanation h3 {

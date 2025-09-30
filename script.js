@@ -634,12 +634,13 @@ document.addEventListener('DOMContentLoaded', function() {
         observer.observe(card);
     });
 
-    // Parallax effect for hero section
+    // Smooth parallax effect for hero section (reduced intensity)
     window.addEventListener('scroll', () => {
         const scrolled = window.pageYOffset;
         const hero = document.querySelector('.hero');
-        if (hero) {
-            hero.style.transform = `translateY(${scrolled * 0.5}px)`;
+        if (hero && scrolled < window.innerHeight) {
+            // Only apply parallax when hero is visible, with reduced intensity
+            hero.style.transform = `translateY(${scrolled * 0.2}px)`;
         }
     });
 });
