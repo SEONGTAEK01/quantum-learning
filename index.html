@@ -476,84 +476,403 @@
 
         <section id="applications" class="section">
             <div class="container">
-                <h2>Modern Applications of Quantum Mechanics</h2>
+                <h2>🚀 Quantum Tech: Changing Our World Today!</h2>
+
+                <div class="applications-intro">
+                    <p>Quantum mechanics isn't just theory anymore – it's revolutionizing technology RIGHT NOW! From unbreakable encryption to quantum computers that could solve climate change, here's how quantum physics is building our future.</p>
+                </div>
 
                 <div class="applications-grid">
-                    <div class="app-card">
-                        <div class="app-icon">💻</div>
-                        <h3>Quantum Computing</h3>
-                        <p>Using qubits to perform calculations exponentially faster than classical computers</p>
-                        <div class="quantum-circuit">
-                            <canvas id="quantumCircuit" width="300" height="150"></canvas>
-                        </div>
-                        <div class="companies">
-                            <strong>Key Players:</strong> IBM, Google, Microsoft, IonQ
-                        </div>
-                        <div class="references">
-                            <ul>
-                                <li><a href="https://quantum-computing.ibm.com/" target="_blank">IBM Quantum Experience</a></li>
-                                <li><a href="https://doi.org/10.1038/nature23879" target="_blank">Quantum supremacy paper (Nature, 2019)</a></li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    <div class="app-card">
-                        <div class="app-icon">🔒</div>
-                        <h3>Quantum Cryptography</h3>
-                        <p>Completely secure communication using quantum mechanical properties</p>
-                        <div class="crypto-demo">
-                            <div class="key-distribution">
-                                <div class="alice">Alice</div>
-                                <div class="quantum-channel"></div>
-                                <div class="bob">Bob</div>
+                    <!-- Quantum Computing Card -->
+                    <div class="app-card interactive" data-app="quantum-computing">
+                        <div class="app-header">
+                            <div class="app-icon">💻</div>
+                            <h3>Quantum Computing</h3>
+                            <div class="power-indicator">
+                                <span class="power-label">Processing Power:</span>
+                                <div class="power-bar quantum-power"></div>
+                                <span class="power-text">Exponentially Faster!</span>
                             </div>
-                            <button onclick="demonstrateQKD()">Demonstrate QKD</button>
                         </div>
-                        <div class="references">
-                            <ul>
-                                <li><a href="https://doi.org/10.1103/PhysRevLett.67.661" target="_blank">BB84 Protocol (Physical Review Letters)</a></li>
-                                <li>China's quantum satellite "Micius" project</li>
-                            </ul>
-                        </div>
-                    </div>
 
-                    <div class="app-card">
-                        <div class="app-icon">🧲</div>
-                        <h3>MRI and NMR</h3>
-                        <p>Medical imaging and molecular structure analysis using nuclear magnetic resonance</p>
-                        <div class="mri-demo">
-                            <div class="magnetic-field">
-                                <div class="nucleus"></div>
-                                <div class="spin-states">
-                                    <div class="spin-up">↑</div>
-                                    <div class="spin-down">↓</div>
+                        <div class="app-content">
+                            <div class="simple-explanation">
+                                <h4>🤔 What's the Big Deal?</h4>
+                                <p>While your laptop processes information as 0s and 1s, quantum computers use <strong>qubits</strong> that can be 0, 1, or BOTH at the same time! This "quantum superposition" allows them to solve certain problems millions of times faster.</p>
+                            </div>
+
+                            <div class="real-world-impact">
+                                <h4>🌍 Real-World Impact:</h4>
+                                <div class="impact-items">
+                                    <div class="impact-item" onclick="showImpactDetail('drug-discovery')">
+                                        <span class="impact-icon">💊</span>
+                                        <span class="impact-text">Drug Discovery: 10+ years → 2 years</span>
+                                    </div>
+                                    <div class="impact-item" onclick="showImpactDetail('climate')">
+                                        <span class="impact-icon">🌱</span>
+                                        <span class="impact-text">Climate Modeling: Weather prediction for decades</span>
+                                    </div>
+                                    <div class="impact-item" onclick="showImpactDetail('ai')">
+                                        <span class="impact-icon">🤖</span>
+                                        <span class="impact-text">AI Training: Months → Hours</span>
+                                    </div>
+                                </div>
+                                <div id="impact-detail" class="impact-detail"></div>
+                            </div>
+
+                            <div class="interactive-demo">
+                                <h4>🎮 Try It: Quantum vs Classical</h4>
+                                <div class="computing-comparison">
+                                    <div class="computing-demo">
+                                        <div class="classical-computer">
+                                            <h5>Classical Computer</h5>
+                                            <div class="processing-visualization">
+                                                <div class="bits-display">
+                                                    <span class="bit">0</span><span class="bit">1</span><span class="bit">0</span><span class="bit">1</span>
+                                                </div>
+                                                <div class="progress-bar classical-progress"></div>
+                                                <span class="time-display classical-time">Calculating...</span>
+                                            </div>
+                                        </div>
+                                        <div class="quantum-computer">
+                                            <h5>Quantum Computer</h5>
+                                            <div class="processing-visualization">
+                                                <div class="qubits-display">
+                                                    <span class="qubit superposition">⚡</span><span class="qubit superposition">⚡</span><span class="qubit superposition">⚡</span><span class="qubit superposition">⚡</span>
+                                                </div>
+                                                <div class="progress-bar quantum-progress"></div>
+                                                <span class="time-display quantum-time">Computing...</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button onclick="startComputingRace()" class="demo-button">🏁 Start Computing Race!</button>
+                                </div>
+                            </div>
+
+                            <div class="current-leaders">
+                                <h4>🏢 Who's Leading the Quantum Race?</h4>
+                                <div class="company-showcase">
+                                    <div class="company-item" data-company="ibm">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20'%3E%3Crect width='40' height='20' fill='%231f70c1'/%3E%3Ctext x='20' y='14' text-anchor='middle' fill='white' font-family='Arial' font-size='10'%3EIBM%3C/text%3E%3C/svg%3E" alt="IBM">
+                                        <span>433 qubits (2023)</span>
+                                    </div>
+                                    <div class="company-item" data-company="google">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20'%3E%3Crect width='40' height='20' fill='%234285f4'/%3E%3Ctext x='20' y='14' text-anchor='middle' fill='white' font-family='Arial' font-size='8'%3EGoogle%3C/text%3E%3C/svg%3E" alt="Google">
+                                        <span>Quantum Supremacy (2019)</span>
+                                    </div>
+                                    <div class="company-item" data-company="ionq">
+                                        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='20'%3E%3Crect width='40' height='20' fill='%23000'/%3E%3Ctext x='20' y='14' text-anchor='middle' fill='white' font-family='Arial' font-size='9'%3EIonQ%3C/text%3E%3C/svg%3E" alt="IonQ">
+                                        <span>Trapped Ion Tech</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="references">
-                            <ul>
-                                <li>Levitt, M. H. "Spin Dynamics: Basics of Nuclear Magnetic Resonance"</li>
-                                <li><a href="https://www.nobelprize.org/prizes/medicine/2003/" target="_blank">2003 Nobel Prize in Physiology</a></li>
-                            </ul>
+                    </div>
+
+                    <!-- Quantum Cryptography Card -->
+                    <div class="app-card interactive" data-app="quantum-crypto">
+                        <div class="app-header">
+                            <div class="app-icon">🔐</div>
+                            <h3>Quantum Cryptography</h3>
+                            <div class="security-level">
+                                <span class="security-label">Security Level:</span>
+                                <div class="security-indicator">
+                                    <span class="security-text">UNBREAKABLE</span>
+                                    <div class="security-animation"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="app-content">
+                            <div class="simple-explanation">
+                                <h4>🛡️ Ultimate Security</h4>
+                                <p>Quantum cryptography uses the laws of physics to create <strong>mathematically unbreakable</strong> encryption. If someone tries to eavesdrop, the quantum states change, immediately alerting you!</p>
+                            </div>
+
+                            <div class="threat-timeline">
+                                <h4>⚠️ The Quantum Threat is Real</h4>
+                                <div class="timeline">
+                                    <div class="timeline-item current">
+                                        <span class="year">2024</span>
+                                        <span class="event">Current encryption is safe</span>
+                                    </div>
+                                    <div class="timeline-item warning">
+                                        <span class="year">2030</span>
+                                        <span class="event">Quantum computers may break RSA</span>
+                                    </div>
+                                    <div class="timeline-item safe">
+                                        <span class="year">NOW</span>
+                                        <span class="event">Quantum cryptography protects us!</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="interactive-demo">
+                                <h4>🕵️ Interactive: Quantum Key Distribution</h4>
+                                <div class="qkd-simulator">
+                                    <div class="participants">
+                                        <div class="participant alice">
+                                            <div class="avatar">👩‍💼</div>
+                                            <span>Alice (Sender)</span>
+                                            <div class="key-status" id="alice-status">Ready to send</div>
+                                        </div>
+                                        <div class="quantum-channel-container">
+                                            <div class="quantum-channel-2">
+                                                <div class="photon-stream" id="photon-stream"></div>
+                                            </div>
+                                            <div class="eavesdropper" id="eavesdropper">
+                                                <span class="spy-icon">👤</span>
+                                                <span class="spy-label">Eve (Eavesdropper)</span>
+                                            </div>
+                                        </div>
+                                        <div class="participant bob">
+                                            <div class="avatar">👨‍💼</div>
+                                            <span>Bob (Receiver)</span>
+                                            <div class="key-status" id="bob-status">Waiting...</div>
+                                        </div>
+                                    </div>
+                                    <div class="demo-controls">
+                                        <button onclick="startQKD()" class="demo-button">🔑 Send Quantum Key</button>
+                                        <button onclick="addEavesdropper()" class="demo-button warning">🕵️ Add Eavesdropper</button>
+                                        <button onclick="resetQKD()" class="demo-button">🔄 Reset</button>
+                                    </div>
+                                    <div class="security-result" id="security-result"></div>
+                                </div>
+                            </div>
+
+                            <div class="real-world-uses">
+                                <h4>🌍 Already Protecting:</h4>
+                                <div class="use-cases">
+                                    <div class="use-case">
+                                        <span class="use-icon">🏦</span>
+                                        <span class="use-text">Bank transactions</span>
+                                    </div>
+                                    <div class="use-case">
+                                        <span class="use-icon">🏛️</span>
+                                        <span class="use-text">Government communications</span>
+                                    </div>
+                                    <div class="use-case">
+                                        <span class="use-icon">🛰️</span>
+                                        <span class="use-text">Satellite networks</span>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="app-card">
-                        <div class="app-icon">💎</div>
-                        <h3>Quantum Sensors</h3>
-                        <p>Ultra-precise measurement technology using quantum properties</p>
-                        <div class="sensor-demo">
-                            <div class="nv-center">
-                                <div class="diamond-lattice"></div>
-                                <div class="defect-center"></div>
+                    <!-- Medical Applications Card -->
+                    <div class="app-card interactive" data-app="medical">
+                        <div class="app-header">
+                            <div class="app-icon">🏥</div>
+                            <h3>Quantum in Medicine</h3>
+                            <div class="lives-saved">
+                                <span class="lives-label">Lives Saved Daily:</span>
+                                <div class="counter" id="lives-counter">1,000,000+</div>
                             </div>
                         </div>
-                        <div class="applications-list">
-                            <ul>
-                                <li>Gravitational wave detection (LIGO)</li>
-                                <li>Magnetic field measurement</li>
-                                <li>Biological signal detection</li>
-                            </ul>
+
+                        <div class="app-content">
+                            <div class="simple-explanation">
+                                <h4>🔬 Seeing Inside Your Body</h4>
+                                <p>MRI machines use <strong>quantum spin</strong> to take incredible pictures of your organs, brain, and tissues – all without harmful radiation! It's quantum mechanics keeping you healthy.</p>
+                            </div>
+
+                            <div class="medical-applications">
+                                <div class="med-app-tabs">
+                                    <button class="med-tab active" onclick="showMedApplication('mri')">🧠 MRI Scans</button>
+                                    <button class="med-tab" onclick="showMedApplication('quantum-sensors')">💎 Quantum Sensors</button>
+                                    <button class="med-tab" onclick="showMedApplication('drug-discovery')">💊 Drug Discovery</button>
+                                </div>
+                                <div class="med-app-content">
+                                    <div id="mri-content" class="med-content active">
+                                        <div class="mri-simulator">
+                                            <h5>🧲 See How MRI Works</h5>
+                                            <div class="body-scan">
+                                                <div class="human-outline">
+                                                    <div class="scan-line" id="scan-line"></div>
+                                                    <div class="organs">
+                                                        <div class="organ brain" onclick="scanOrgan('brain')">🧠</div>
+                                                        <div class="organ heart" onclick="scanOrgan('heart')">❤️</div>
+                                                        <div class="organ lungs" onclick="scanOrgan('lungs')">🫁</div>
+                                                    </div>
+                                                </div>
+                                                <div class="scan-result" id="scan-result">
+                                                    <p>Click on an organ to see quantum imaging in action!</p>
+                                                </div>
+                                            </div>
+                                            <button onclick="startMRIScan()" class="demo-button">🔍 Start Full Body Scan</button>
+                                        </div>
+                                    </div>
+                                    <div id="quantum-sensors-content" class="med-content">
+                                        <h5>💎 Quantum Sensors in Medicine</h5>
+                                        <div class="sensor-applications">
+                                            <div class="sensor-item">
+                                                <span class="sensor-icon">🧠</span>
+                                                <div class="sensor-info">
+                                                    <h6>Brain Activity Detection</h6>
+                                                    <p>Quantum sensors can detect single neurons firing!</p>
+                                                </div>
+                                            </div>
+                                            <div class="sensor-item">
+                                                <span class="sensor-icon">🩸</span>
+                                                <div class="sensor-info">
+                                                    <h6>Blood Flow Monitoring</h6>
+                                                    <p>Track blood circulation at microscopic levels</p>
+                                                </div>
+                                            </div>
+                                            <div class="sensor-item">
+                                                <span class="sensor-icon">🦴</span>
+                                                <div class="sensor-info">
+                                                    <h6>Bone Density Analysis</h6>
+                                                    <p>Early detection of osteoporosis</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="drug-discovery-content" class="med-content">
+                                        <h5>💊 Quantum Drug Discovery</h5>
+                                        <div class="discovery-process">
+                                            <div class="process-step">
+                                                <span class="step-number">1</span>
+                                                <div class="step-content">
+                                                    <h6>Molecular Simulation</h6>
+                                                    <p>Quantum computers model how drugs interact with proteins</p>
+                                                </div>
+                                            </div>
+                                            <div class="process-step">
+                                                <span class="step-number">2</span>
+                                                <div class="step-content">
+                                                    <h6>Side Effect Prediction</h6>
+                                                    <p>Predict harmful effects before human trials</p>
+                                                </div>
+                                            </div>
+                                            <div class="process-step">
+                                                <span class="step-number">3</span>
+                                                <div class="step-content">
+                                                    <h6>Personalized Medicine</h6>
+                                                    <p>Custom drugs based on your DNA</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quantum Sensors & LIGO Card -->
+                    <div class="app-card interactive" data-app="sensors">
+                        <div class="app-header">
+                            <div class="app-icon">🌌</div>
+                            <h3>Quantum Sensors & LIGO</h3>
+                            <div class="sensitivity-meter">
+                                <span class="sensitivity-label">Sensitivity:</span>
+                                <div class="meter">
+                                    <div class="meter-fill"></div>
+                                    <span class="meter-text">10⁻²¹ meters!</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="app-content">
+                            <div class="simple-explanation">
+                                <h4>👁️ The Universe's Most Sensitive Eyes</h4>
+                                <p>Quantum sensors can detect movements smaller than 1/1000th the width of a proton! LIGO uses this to detect <strong>gravitational waves</strong> from colliding black holes billions of light-years away.</p>
+                            </div>
+
+                            <div class="ligo-explanation">
+                                <h4>🌊 Gravitational Waves Detected!</h4>
+                                <div class="wave-timeline">
+                                    <div class="detection-item">
+                                        <span class="date">Sept 2015</span>
+                                        <span class="event">First detection: Two black holes collide 1.3 billion years ago</span>
+                                        <span class="significance">🏆 Nobel Prize 2017</span>
+                                    </div>
+                                    <div class="detection-item">
+                                        <span class="date">Aug 2017</span>
+                                        <span class="event">Neutron stars merger creates gold and platinum</span>
+                                        <span class="significance">💰 Worth $10 octillion!</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="interactive-demo">
+                                <h4>🎮 Interactive: Detect Gravitational Waves</h4>
+                                <div class="ligo-simulator">
+                                    <div class="detector-arms">
+                                        <div class="arm horizontal">
+                                            <div class="laser-beam horizontal-beam" id="horizontal-beam"></div>
+                                            <span class="arm-label">4 km</span>
+                                        </div>
+                                        <div class="arm vertical">
+                                            <div class="laser-beam vertical-beam" id="vertical-beam"></div>
+                                            <span class="arm-label">4 km</span>
+                                        </div>
+                                        <div class="detector-center">
+                                            <div class="laser-source">🔦</div>
+                                        </div>
+                                    </div>
+                                    <div class="wave-controls">
+                                        <button onclick="simulateBlackHoleCollision()" class="demo-button">🕳️ Black Hole Collision</button>
+                                        <button onclick="simulateNeutronStarMerger()" class="demo-button">⭐ Neutron Star Merger</button>
+                                        <button onclick="resetLIGO()" class="demo-button">🔄 Reset</button>
+                                    </div>
+                                    <div class="detection-result" id="ligo-result">
+                                        <div class="waveform" id="waveform"></div>
+                                        <div class="detection-info" id="detection-info"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="sensor-applications">
+                                <h4>🎯 Other Quantum Sensor Uses:</h4>
+                                <div class="sensor-grid">
+                                    <div class="sensor-use">
+                                        <span class="use-icon">🗺️</span>
+                                        <h6>GPS Accuracy</h6>
+                                        <p>Atomic clocks in satellites</p>
+                                    </div>
+                                    <div class="sensor-use">
+                                        <span class="use-icon">⛽</span>
+                                        <h6>Oil Exploration</h6>
+                                        <p>Detecting underground resources</p>
+                                    </div>
+                                    <div class="sensor-use">
+                                        <span class="use-icon">🌍</span>
+                                        <h6>Earthquake Prediction</h6>
+                                        <p>Monitoring ground movement</p>
+                                    </div>
+                                    <div class="sensor-use">
+                                        <span class="use-icon">🛡️</span>
+                                        <h6>Dark Matter Hunt</h6>
+                                        <p>Searching for invisible matter</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="future-applications">
+                    <h3>🔮 Coming Soon: The Quantum Future</h3>
+                    <div class="future-grid">
+                        <div class="future-item">
+                            <span class="future-icon">🚗</span>
+                            <h4>Quantum Cars</h4>
+                            <p>Self-driving cars with quantum sensors for perfect navigation</p>
+                            <span class="eta">ETA: 2030</span>
+                        </div>
+                        <div class="future-item">
+                            <span class="future-icon">🌐</span>
+                            <h4>Quantum Internet</h4>
+                            <p>Unhackable global network using quantum entanglement</p>
+                            <span class="eta">ETA: 2035</span>
+                        </div>
+                        <div class="future-item">
+                            <span class="future-icon">🧬</span>
+                            <h4>Quantum Biology</h4>
+                            <p>Understanding photosynthesis and consciousness itself</p>
+                            <span class="eta">ETA: 2040</span>
                         </div>
                     </div>
                 </div>

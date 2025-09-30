@@ -688,3 +688,289 @@ function addTooltips() {
 
 // Initialize tooltips when page loads
 document.addEventListener('DOMContentLoaded', addTooltips);
+
+// Modern Applications Interactive Functions
+
+// Impact Detail Functions
+function showImpactDetail(type) {
+    const details = {
+        'drug-discovery': {
+            title: '💊 Drug Discovery Revolution',
+            content: 'Traditional drug discovery takes 10-15 years and costs $2.6 billion. Quantum computers can simulate molecular interactions at the atomic level, reducing this to 2-3 years and saving billions of lives and dollars!'
+        },
+        'climate': {
+            title: '🌱 Climate Modeling',
+            content: 'Current weather models can predict 5-7 days ahead. Quantum computers could model complex climate systems for decades, helping us predict and prevent climate disasters!'
+        },
+        'ai': {
+            title: '🤖 AI Training Acceleration',
+            content: 'Training large AI models currently takes months on thousands of GPUs. Quantum computers could reduce this to hours, making AI development faster and more accessible!'
+        }
+    };
+
+    const detail = details[type];
+    const detailDiv = document.getElementById('impact-detail');
+    detailDiv.innerHTML = `
+        <div class="impact-detail-content">
+            <h5>${detail.title}</h5>
+            <p>${detail.content}</p>
+        </div>
+    `;
+}
+
+// Computing Race Simulation
+function startComputingRace() {
+    const classicalProgress = document.querySelector('.classical-progress');
+    const quantumProgress = document.querySelector('.quantum-progress');
+    const classicalTime = document.querySelector('.classical-time');
+    const quantumTime = document.querySelector('.quantum-time');
+
+    // Reset progress
+    classicalProgress.style.width = '0%';
+    quantumProgress.style.width = '0%';
+
+    let classicalPercent = 0;
+    let quantumPercent = 0;
+
+    const raceInterval = setInterval(() => {
+        // Classical computer progresses slowly
+        classicalPercent += Math.random() * 2;
+        classicalProgress.style.width = Math.min(classicalPercent, 100) + '%';
+        classicalTime.textContent = `${Math.round(classicalPercent)}% completed`;
+
+        // Quantum computer progresses much faster
+        quantumPercent += Math.random() * 15;
+        quantumProgress.style.width = Math.min(quantumPercent, 100) + '%';
+        quantumTime.textContent = `${Math.round(quantumPercent)}% completed`;
+
+        // Check for completion
+        if (quantumPercent >= 100) {
+            quantumTime.textContent = '✅ Done in 0.3 seconds!';
+            classicalTime.textContent = `${Math.round(classicalPercent)}% (Still calculating...)`;
+            clearInterval(raceInterval);
+
+            // Continue classical for demonstration
+            setTimeout(() => {
+                if (classicalPercent < 100) {
+                    classicalTime.textContent = '⏰ Classical would take 3 hours!';
+                }
+            }, 2000);
+        }
+    }, 100);
+}
+
+// Quantum Key Distribution Functions
+let qkdState = {
+    eavesdropperActive: false,
+    transmissionInProgress: false
+};
+
+function startQKD() {
+    if (qkdState.transmissionInProgress) return;
+
+    qkdState.transmissionInProgress = true;
+    const aliceStatus = document.getElementById('alice-status');
+    const bobStatus = document.getElementById('bob-status');
+    const securityResult = document.getElementById('security-result');
+    const photonStream = document.getElementById('photon-stream');
+
+    aliceStatus.textContent = 'Sending quantum key...';
+    bobStatus.textContent = 'Receiving...';
+
+    // Animate photon stream
+    photonStream.innerHTML = '';
+    for (let i = 0; i < 10; i++) {
+        const photon = document.createElement('div');
+        photon.className = 'photon';
+        photon.style.left = (i * 10) + '%';
+        photon.style.animationDelay = (i * 0.1) + 's';
+        photonStream.appendChild(photon);
+    }
+
+    setTimeout(() => {
+        if (qkdState.eavesdropperActive) {
+            aliceStatus.textContent = '⚠️ Eavesdropping detected!';
+            bobStatus.textContent = '🚨 Key compromised!';
+            securityResult.innerHTML = `
+                <div class="security-alert danger">
+                    <h4>🚨 Security Breach Detected!</h4>
+                    <p>Eve tried to intercept the quantum key, but we caught her immediately! The quantum states changed when she observed them, alerting us to the breach.</p>
+                    <p><strong>Result:</strong> Communication aborted. No information leaked!</p>
+                </div>
+            `;
+        } else {
+            aliceStatus.textContent = '✅ Key sent securely';
+            bobStatus.textContent = '✅ Key received intact';
+            securityResult.innerHTML = `
+                <div class="security-alert success">
+                    <h4>🔐 Secure Communication Established!</h4>
+                    <p>The quantum key was transmitted successfully with no eavesdropping detected.</p>
+                    <p><strong>Security Level:</strong> Mathematically Unbreakable</p>
+                </div>
+            `;
+        }
+        qkdState.transmissionInProgress = false;
+    }, 3000);
+}
+
+function addEavesdropper() {
+    qkdState.eavesdropperActive = true;
+    const eavesdropper = document.getElementById('eavesdropper');
+    eavesdropper.style.display = 'block';
+    eavesdropper.classList.add('active');
+}
+
+function resetQKD() {
+    qkdState = { eavesdropperActive: false, transmissionInProgress: false };
+    document.getElementById('alice-status').textContent = 'Ready to send';
+    document.getElementById('bob-status').textContent = 'Waiting...';
+    document.getElementById('security-result').innerHTML = '';
+    document.getElementById('photon-stream').innerHTML = '';
+    const eavesdropper = document.getElementById('eavesdropper');
+    eavesdropper.style.display = 'none';
+    eavesdropper.classList.remove('active');
+}
+
+// Medical Applications Functions
+function showMedApplication(app) {
+    // Hide all content
+    document.querySelectorAll('.med-content').forEach(content => {
+        content.classList.remove('active');
+    });
+    document.querySelectorAll('.med-tab').forEach(tab => {
+        tab.classList.remove('active');
+    });
+
+    // Show selected content
+    document.getElementById(app + '-content').classList.add('active');
+    event.target.classList.add('active');
+}
+
+function scanOrgan(organ) {
+    const scanResult = document.getElementById('scan-result');
+    const organInfo = {
+        brain: {
+            name: '🧠 Brain Scan',
+            result: 'High-resolution MRI reveals neural pathways and blood flow. No abnormalities detected. Quantum spins in water molecules provide incredible detail!'
+        },
+        heart: {
+            name: '❤️ Heart Scan',
+            result: 'Cardiac MRI shows strong, healthy heart rhythm. Blood flow is normal. Quantum magnetic resonance detects even tiny blockages!'
+        },
+        lungs: {
+            name: '🫁 Lung Scan',
+            result: 'Pulmonary scan shows clear airways and healthy tissue. No fluid or masses detected. Quantum imaging sees what X-rays cannot!'
+        }
+    };
+
+    const info = organInfo[organ];
+    scanResult.innerHTML = `
+        <div class="scan-result-content">
+            <h6>${info.name}</h6>
+            <div class="scan-animation"></div>
+            <p>${info.result}</p>
+        </div>
+    `;
+}
+
+function startMRIScan() {
+    const scanLine = document.getElementById('scan-line');
+    const scanResult = document.getElementById('scan-result');
+
+    scanLine.style.display = 'block';
+    scanLine.style.animation = 'none';
+    setTimeout(() => {
+        scanLine.style.animation = 'mri-scan 3s ease-in-out';
+    }, 10);
+
+    scanResult.innerHTML = `
+        <div class="full-scan-result">
+            <h6>🔍 Full Body Quantum MRI</h6>
+            <div class="scanning-progress">
+                <div class="scan-bar"></div>
+                <p>Scanning... Using quantum spin resonance</p>
+            </div>
+        </div>
+    `;
+
+    setTimeout(() => {
+        scanResult.innerHTML = `
+            <div class="scan-complete">
+                <h6>✅ Scan Complete!</h6>
+                <div class="scan-summary">
+                    <p><strong>🧠 Brain:</strong> Healthy neural activity</p>
+                    <p><strong>❤️ Heart:</strong> Strong cardiac function</p>
+                    <p><strong>🫁 Lungs:</strong> Clear respiratory system</p>
+                    <p><strong>🦴 Bones:</strong> Normal density</p>
+                </div>
+                <p class="quantum-note">All thanks to quantum mechanics! 🎉</p>
+            </div>
+        `;
+    }, 3000);
+}
+
+// LIGO Simulation Functions
+function simulateBlackHoleCollision() {
+    const horizontalBeam = document.getElementById('horizontal-beam');
+    const verticalBeam = document.getElementById('vertical-beam');
+    const waveform = document.getElementById('waveform');
+    const detectionInfo = document.getElementById('detection-info');
+
+    // Simulate gravitational wave distortion
+    horizontalBeam.style.animation = 'gravitational-wave-h 2s ease-in-out';
+    verticalBeam.style.animation = 'gravitational-wave-v 2s ease-in-out';
+
+    // Show detection
+    waveform.innerHTML = `
+        <div class="detected-wave black-hole-wave"></div>
+    `;
+
+    detectionInfo.innerHTML = `
+        <div class="detection-alert">
+            <h4>🕳️ BLACK HOLE COLLISION DETECTED!</h4>
+            <p><strong>Distance:</strong> 1.3 billion light-years away</p>
+            <p><strong>Mass:</strong> 29 + 36 solar masses → 62 solar masses</p>
+            <p><strong>Energy Released:</strong> 3 solar masses converted to gravitational waves</p>
+            <p><strong>Detection Time:</strong> 0.2 seconds</p>
+            <p class="amazing-fact">✨ This happened 1.3 billion years ago - before life on Earth!</p>
+        </div>
+    `;
+}
+
+function simulateNeutronStarMerger() {
+    const horizontalBeam = document.getElementById('horizontal-beam');
+    const verticalBeam = document.getElementById('vertical-beam');
+    const waveform = document.getElementById('waveform');
+    const detectionInfo = document.getElementById('detection-info');
+
+    // Simulate different wave pattern
+    horizontalBeam.style.animation = 'neutron-wave-h 3s ease-in-out';
+    verticalBeam.style.animation = 'neutron-wave-v 3s ease-in-out';
+
+    waveform.innerHTML = `
+        <div class="detected-wave neutron-wave"></div>
+    `;
+
+    detectionInfo.innerHTML = `
+        <div class="detection-alert neutron">
+            <h4>⭐ NEUTRON STAR MERGER DETECTED!</h4>
+            <p><strong>Distance:</strong> 130 million light-years</p>
+            <p><strong>Duration:</strong> ~100 seconds</p>
+            <p><strong>Created:</strong> Heavy elements (gold, platinum, uranium)</p>
+            <p><strong>Gold Produced:</strong> 10 Earth masses worth!</p>
+            <p class="amazing-fact">💰 Your gold jewelry was forged in neutron star collisions!</p>
+        </div>
+    `;
+}
+
+function resetLIGO() {
+    const horizontalBeam = document.getElementById('horizontal-beam');
+    const verticalBeam = document.getElementById('vertical-beam');
+    const waveform = document.getElementById('waveform');
+    const detectionInfo = document.getElementById('detection-info');
+
+    horizontalBeam.style.animation = 'none';
+    verticalBeam.style.animation = 'none';
+    waveform.innerHTML = '';
+    detectionInfo.innerHTML = '';
+}
