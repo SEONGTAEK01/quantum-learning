@@ -338,7 +338,7 @@ body {
 }
 
 .position-bar::before {
-    content: '위치 Δx';
+    content: 'Position Δx';
     position: absolute;
     top: -25px;
     left: 0;
@@ -347,7 +347,7 @@ body {
 }
 
 .momentum-bar::before {
-    content: '운동량 Δp';
+    content: 'Momentum Δp';
     position: absolute;
     top: -25px;
     left: 0;

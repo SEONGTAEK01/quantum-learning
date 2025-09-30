@@ -381,20 +381,28 @@ function resetCat() {
     const catState = document.getElementById('catState');
     const catBox = document.getElementById('catBox');
 
+    if (!catState || !catBox) return;
+
     // Reset cats
     const aliveCat = catState.querySelector('.cat.alive');
     const deadCat = catState.querySelector('.cat.dead');
     const indicator = catState.querySelector('.superposition-indicator');
 
-    aliveCat.style.display = 'block';
-    deadCat.style.display = 'none';
-    indicator.style.display = 'block';
+    if (aliveCat) aliveCat.style.display = 'block';
+    if (deadCat) deadCat.style.display = 'block';
+    if (indicator) indicator.style.display = 'block';
 
-    // Remove result text
-    const resultText = catBox.querySelector('div:last-child');
-    if (resultText && resultText !== catState) {
-        resultText.remove();
-    }
+    // Remove any result text elements
+    const resultTexts = catBox.querySelectorAll('div');
+    resultTexts.forEach(div => {
+        if (div !== catState && div.textContent &&
+            (div.textContent.includes('alive') || div.textContent.includes('dead'))) {
+            div.remove();
+        }
+    });
+
+    // Reset global cat state
+    catState = 'superposition';
 }
 
 // Quantum Circuit Visualization
