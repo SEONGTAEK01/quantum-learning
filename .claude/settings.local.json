@@ -16,7 +16,8 @@
       "Bash(pbcopy)",
       "WebFetch(domain:seongtaek01.github.io)",
       "Bash(git remote set-url:*)",
-      "Bash(git commit -m \"$(cat <<''EOF''\nAdd Buy Me a Coffee button back to sidebar\n\n- Restored Buy Me a Coffee support button in sidebar\n- Kept clean design by removing only Patreon and international support sections\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")"
+      "Bash(git commit -m \"$(cat <<''EOF''\nAdd Buy Me a Coffee button back to sidebar\n\n- Restored Buy Me a Coffee support button in sidebar\n- Kept clean design by removing only Patreon and international support sections\n\n🤖 Generated with [Claude Code](https://claude.com/claude-code)\n\nCo-Authored-By: Claude <noreply@anthropic.com>\nEOF\n)\")",
+      "Bash(claude doctor)"
     ],
     "deny": [],
     "ask": []
