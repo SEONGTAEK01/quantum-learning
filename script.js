@@ -198,9 +198,27 @@ function measureEntanglement() {
 }
 
 // Double Slit Experiment
+let doubleSlitAnimation = null;
+let isExperimentRunning = false;
+
 function startDoubleSlitExperiment() {
     const canvas = document.getElementById('doubleSlitCanvas');
     if (!canvas) return;
+
+    // Stop any existing animation
+    if (doubleSlitAnimation) {
+        clearInterval(doubleSlitAnimation);
+    }
+
+    // Reset experiment state
+    isExperimentRunning = true;
+
+    // Update button text
+    const button = document.querySelector('button[onclick="startDoubleSlitExperiment()"]');
+    if (button) {
+        button.textContent = 'Stop Experiment';
+        button.onclick = stopDoubleSlitExperiment;
+    }
 
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -210,6 +228,30 @@ function startDoubleSlitExperiment() {
 
     // Animate particles/waves
     animateDoubleSlitPattern(ctx);
+}
+
+function stopDoubleSlitExperiment() {
+    isExperimentRunning = false;
+
+    if (doubleSlitAnimation) {
+        clearInterval(doubleSlitAnimation);
+        doubleSlitAnimation = null;
+    }
+
+    // Update button text
+    const button = document.querySelector('button[onclick="stopDoubleSlitExperiment()"]');
+    if (button) {
+        button.textContent = 'Start Experiment';
+        button.onclick = startDoubleSlitExperiment;
+    }
+
+    // Clear and redraw static setup
+    const canvas = document.getElementById('doubleSlitCanvas');
+    if (canvas) {
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        drawDoubleSlitSetup(ctx);
+    }
 }
 
 function drawDoubleSlitSetup(ctx) {
@@ -239,7 +281,7 @@ function drawDoubleSlitSetup(ctx) {
 function animateDoubleSlitPattern(ctx) {
     let frame = 0;
     const animate = () => {
-        if (frame > 100) return; // Stop after 100 frames
+        if (!isExperimentRunning) return; // Stop if experiment stopped
 
         const canvas = ctx.canvas;
 
@@ -252,42 +294,85 @@ function animateDoubleSlitPattern(ctx) {
         }
 
         frame++;
-        setTimeout(() => requestAnimationFrame(animate), 100);
+
+        // Continue animation
+        doubleSlitAnimation = setTimeout(() => requestAnimationFrame(animate), 50); // Faster animation
     };
     animate();
 }
 
 function drawParticlePattern(ctx, frame) {
-    // Clear previous particles
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.1)';
-    ctx.fillRect(0, 0, ctx.canvas.width, ctx.canvas.height);
-
-    // Redraw setup
+    // Clear and redraw setup
+    ctx.clearRect(0, 0, ctx.canvas.width, ctx.canvas.height);
     drawDoubleSlitSetup(ctx);
 
-    // Draw particles going through specific slits
-    const particleY1 = 130 + Math.sin(frame * 0.3) * 10;
-    const particleY2 = 180 + Math.sin(frame * 0.3 + Math.PI) * 10;
+    // Draw multiple particles for more realistic effect
+    const particleSpeed = 6; // Faster particles
+    const numParticles = 3;
 
-    ctx.fillStyle = '#4fc3f7';
-    ctx.beginPath();
-    ctx.arc(50 + frame * 3, particleY1, 3, 0, 2 * Math.PI);
-    ctx.fill();
+    for (let i = 0; i < numParticles; i++) {
+        const offset = i * 20;
+        const particleX = 30 + (frame * particleSpeed + offset) % 400;
 
-    ctx.beginPath();
-    ctx.arc(50 + frame * 3, particleY2, 3, 0, 2 * Math.PI);
-    ctx.fill();
+        // Particles go through specific slits when detector is on
+        const slit1Y = 130 + Math.sin((frame + offset) * 0.2) * 5;
+        const slit2Y = 180 + Math.sin((frame + offset) * 0.2 + Math.PI) * 5;
 
-    // Show detection points on screen
-    if (frame * 3 > 350) {
+        // Draw particles
+        ctx.fillStyle = `hsl(${200 + i * 30}, 80%, 60%)`;
+
+        // Particle going through slit 1
+        if (particleX < 420) {
+            ctx.beginPath();
+            ctx.arc(particleX, slit1Y, 4, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Add particle trail
+            ctx.fillStyle = `hsla(${200 + i * 30}, 80%, 60%, 0.3)`;
+            for (let j = 1; j < 5; j++) {
+                ctx.beginPath();
+                ctx.arc(particleX - j * 8, slit1Y, 4 - j, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+
+        // Particle going through slit 2
+        if ((frame + offset) % 40 > 20 && particleX < 420) { // Staggered timing
+            ctx.fillStyle = `hsl(${200 + i * 30}, 80%, 60%)`;
+            ctx.beginPath();
+            ctx.arc(particleX, slit2Y, 4, 0, 2 * Math.PI);
+            ctx.fill();
+
+            // Add particle trail
+            ctx.fillStyle = `hsla(${200 + i * 30}, 80%, 60%, 0.3)`;
+            for (let j = 1; j < 5; j++) {
+                ctx.beginPath();
+                ctx.arc(particleX - j * 8, slit2Y, 4 - j, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+
+        // Show detection points on screen
+        if (particleX > 380) {
+            ctx.fillStyle = '#ff5722';
+            ctx.beginPath();
+            ctx.arc(410, slit1Y, 3, 0, 2 * Math.PI);
+            ctx.fill();
+
+            if ((frame + offset) % 40 > 20) {
+                ctx.beginPath();
+                ctx.arc(410, slit2Y, 3, 0, 2 * Math.PI);
+                ctx.fill();
+            }
+        }
+    }
+
+    // Add detector indicator when on
+    if (doubleSlitDetectorOn) {
         ctx.fillStyle = '#ff5722';
-        ctx.beginPath();
-        ctx.arc(410, particleY1, 2, 0, 2 * Math.PI);
-        ctx.fill();
-
-        ctx.beginPath();
-        ctx.arc(410, particleY2, 2, 0, 2 * Math.PI);
-        ctx.fill();
+        ctx.font = '12px Inter';
+        ctx.fillText('🔍 DETECTOR ON', 160, 30);
+        ctx.fillText('(Observing which slit)', 160, 45);
     }
 }
 
@@ -328,8 +413,25 @@ function drawInterferencePattern(ctx, frame) {
 function toggleDetector() {
     doubleSlitDetectorOn = !doubleSlitDetectorOn;
     const button = event.target;
-    button.textContent = doubleSlitDetectorOn ? 'Detector On' : 'Detector Off';
-    button.style.background = doubleSlitDetectorOn ? '#f44336' : '#667eea';
+    button.textContent = doubleSlitDetectorOn ? '🔍 Detector ON' : '👁️ Detector OFF';
+    button.style.background = doubleSlitDetectorOn ? '#f44336' : '#4caf50';
+    button.style.color = 'white';
+
+    // Add visual feedback
+    button.style.transform = 'scale(0.95)';
+    setTimeout(() => {
+        button.style.transform = 'scale(1)';
+    }, 150);
+
+    // If experiment is running, immediately update the pattern
+    if (isExperimentRunning) {
+        const canvas = document.getElementById('doubleSlitCanvas');
+        if (canvas) {
+            const ctx = canvas.getContext('2d');
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            drawDoubleSlitSetup(ctx);
+        }
+    }
 }
 
 function toggleWaveView() {

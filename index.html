@@ -161,13 +161,94 @@
                     <div class="main-content">
                         <h2>Quantum Mechanics Fundamentals</h2>
 
+                        <div class="intro-explanation">
+                            <h3>🌟 What is Quantum Mechanics?</h3>
+                            <p>Imagine a world where objects can be in multiple places at once, where measuring something changes its behavior, and where particles separated by vast distances can instantly affect each other. This isn't science fiction – it's the strange but real world of quantum mechanics!</p>
+
+                            <div class="quantum-comparison-table">
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Classical World (What We See)</th>
+                                            <th>Quantum World (Atomic Scale)</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Objects have definite positions</td>
+                                            <td>Particles exist in "probability clouds"</td>
+                                        </tr>
+                                        <tr>
+                                            <td>You can measure without changing</td>
+                                            <td>Observation changes the system</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Information travels at finite speed</td>
+                                            <td>Entangled particles share instant connections</td>
+                                        </tr>
+                                        <tr>
+                                            <td>Objects are either waves OR particles</td>
+                                            <td>Everything is BOTH wave AND particle</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <div class="size-scale">
+                                <h4>📏 Scale of the Quantum World</h4>
+                                <div class="scale-visualization">
+                                    <div class="scale-item">
+                                        <span class="scale-size">1m</span>
+                                        <div class="scale-bar human"></div>
+                                        <span class="scale-label">Human</span>
+                                    </div>
+                                    <div class="scale-item">
+                                        <span class="scale-size">1cm</span>
+                                        <div class="scale-bar insect"></div>
+                                        <span class="scale-label">Ant</span>
+                                    </div>
+                                    <div class="scale-item">
+                                        <span class="scale-size">0.1mm</span>
+                                        <div class="scale-bar cell"></div>
+                                        <span class="scale-label">Cell</span>
+                                    </div>
+                                    <div class="scale-item">
+                                        <span class="scale-size">1nm</span>
+                                        <div class="scale-bar molecule"></div>
+                                        <span class="scale-label">Molecule</span>
+                                    </div>
+                                    <div class="scale-item quantum-highlight">
+                                        <span class="scale-size">0.1nm</span>
+                                        <div class="scale-bar atom"></div>
+                                        <span class="scale-label">⚛️ Atom (Quantum World!)</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                         <div class="concept-grid">
                             <div class="concept-card" data-concept="wave-particle">
                                 <div class="concept-icon">
                                     <i class="fas fa-wave-square"></i>
                                 </div>
                                 <h3>Wave-Particle Duality</h3>
-                                <p>The concept that light and matter simultaneously exhibit both wave and particle properties</p>
+                                <div class="detailed-explanation">
+                                    <p><strong>Simple Explanation:</strong> Everything in the quantum world behaves like both a wave (like ripples in water) and a particle (like a tiny ball) at the same time!</p>
+
+                                    <div class="analogy-box">
+                                        <h4>🌊 Think of it like this:</h4>
+                                        <ul>
+                                            <li><strong>As a Wave:</strong> Light spreads out and can interfere with itself, creating bright and dark patterns</li>
+                                            <li><strong>As a Particle:</strong> Light comes in discrete packets called "photons" that hit detectors one by one</li>
+                                            <li><strong>The Mystery:</strong> How can something be both? It depends on how you look at it!</li>
+                                        </ul>
+                                    </div>
+
+                                    <div class="everyday-example">
+                                        <h4>🏠 Everyday Example:</h4>
+                                        <p>Imagine if a coin could be both "heads" and "tails" at the same time, and only when you look at it does it "decide" which one to be. That's quantum mechanics!</p>
+                                    </div>
+                                </div>
                                 <div class="wave-particle-demo">
                                     <canvas id="waveParticleCanvas" width="300" height="150"></canvas>
                                     <button onclick="toggleWaveParticle()">Toggle Wave/Particle</button>
@@ -186,7 +267,39 @@
                                     <i class="fas fa-question-circle"></i>
                                 </div>
                                 <h3>Heisenberg Uncertainty Principle</h3>
-                                <p>The principle that position and momentum cannot be simultaneously measured with perfect accuracy</p>
+                                <div class="detailed-explanation">
+                                    <p><strong>Simple Explanation:</strong> You can't know exactly where something is AND how fast it's moving at the same time. The more precisely you know one, the less you know about the other!</p>
+
+                                    <div class="uncertainty-comparison">
+                                        <div class="comparison-item">
+                                            <h4>🎯 If you know POSITION very well:</h4>
+                                            <div class="visual-bar">
+                                                <div class="position-precise"></div>
+                                                <span>Position: Very Precise ✓</span>
+                                            </div>
+                                            <div class="visual-bar">
+                                                <div class="momentum-fuzzy"></div>
+                                                <span>Speed/Direction: Very Fuzzy ❓</span>
+                                            </div>
+                                        </div>
+                                        <div class="comparison-item">
+                                            <h4>🏃 If you know SPEED very well:</h4>
+                                            <div class="visual-bar">
+                                                <div class="position-fuzzy"></div>
+                                                <span>Position: Very Fuzzy ❓</span>
+                                            </div>
+                                            <div class="visual-bar">
+                                                <div class="momentum-precise"></div>
+                                                <span>Speed/Direction: Very Precise ✓</span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="everyday-example">
+                                        <h4>🚗 Everyday Example:</h4>
+                                        <p>Imagine trying to photograph a race car at night. If you use a fast shutter speed to capture its exact speed, the photo is blurry and you can't see where it is. If you use a slow shutter speed to see its position clearly, the car appears as a streak and you can't tell how fast it's going!</p>
+                                    </div>
+                                </div>
                                 <div class="uncertainty-demo">
                                     <div class="position-momentum-viz">
                                         <div class="slider-container">
