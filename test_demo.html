@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Demos</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .test-section { margin: 20px 0; padding: 20px; border: 1px solid #ccc; }
+        .progress-bar { width: 200px; height: 20px; background: #e0e0e0; border-radius: 10px; position: relative; }
+        .progress-fill { height: 100%; background: #667eea; border-radius: 10px; width: 0%; transition: width 0.1s ease; }
+        .channel { width: 200px; height: 40px; background: linear-gradient(90deg, #4fc3f7, #81c784); margin: 10px 0; position: relative; border-radius: 20px; }
+        .photon { position: absolute; font-size: 1.5rem; top: 5px; left: 10px; }
+        .result { margin: 10px 0; padding: 10px; border-radius: 5px; }
+        .secure { background: #c8e6c9; color: #2e7d32; }
+        .compromised { background: #ffcdd2; color: #c62828; }
+        button { margin: 5px; padding: 10px 15px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Demo Function Tests</h1>
+
+    <div class="test-section">
+        <h2>Speed Demo Test</h2>
+        <div>
+            <div>Classical Computer</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="classical-progress"></div>
+            </div>
+            <div id="classical-time">0s</div>
+        </div>
+        <div>
+            <div>Quantum Computer</div>
+            <div class="progress-bar">
+                <div class="progress-fill" id="quantum-progress"></div>
+            </div>
+            <div id="quantum-time">0s</div>
+        </div>
+        <button onclick="testSpeedDemo()">Test Speed Demo</button>
+    </div>
+
+    <div class="test-section">
+        <h2>Crypto Demo Test</h2>
+        <div class="channel">
+            <div class="photon" id="photon">💫</div>
+            <div id="eve" style="display:none; position: absolute; top: -10px; left: 50%; background: red; color: white; padding: 5px;">🕵️ Eve</div>
+        </div>
+        <div class="result" id="crypto-result">Ready to test</div>
+        <button onclick="testSendKey()">Send Key</button>
+        <button onclick="testToggleEve()">Toggle Eve</button>
+    </div>
+
+    <div class="test-section">
+        <h2>MRI Demo Test</h2>
+        <div onclick="testScanOrgan('brain')" style="cursor: pointer; padding: 10px; border: 1px solid #ccc; margin: 5px;">🧠 Brain</div>
+        <div onclick="testScanOrgan('heart')" style="cursor: pointer; padding: 10px; border: 1px solid #ccc; margin: 5px;">❤️ Heart</div>
+        <div id="mri-display" style="background: #2c3e50; color: white; padding: 15px; margin: 10px 0;">Click an organ</div>
+        <button onclick="testMRIFull()">Full Scan</button>
+    </div>
+
+    <script>
+        let isEveActive = false;
+
+        function testSpeedDemo() {
+            console.log('Testing speed demo...');
+            const classicalProgress = document.getElementById('classical-progress');
+            const quantumProgress = document.getElementById('quantum-progress');
+            const classicalTime = document.getElementById('classical-time');
+            const quantumTime = document.getElementById('quantum-time');
+
+            classicalProgress.style.width = '0%';
+            quantumProgress.style.width = '0%';
+            classicalTime.textContent = '0s';
+            quantumTime.textContent = '0s';
+
+            let classicalPercent = 0;
+            let quantumPercent = 0;
+            let startTime = Date.now();
+
+            const interval = setInterval(() => {
+                const elapsed = (Date.now() - startTime) / 1000;
+
+                classicalPercent += 1;
+                classicalProgress.style.width = classicalPercent + '%';
+                classicalTime.textContent = elapsed.toFixed(1) + 's';
+
+                quantumPercent += 8;
+                quantumProgress.style.width = Math.min(quantumPercent, 100) + '%';
+                quantumTime.textContent = (elapsed * 0.3).toFixed(1) + 's';
+
+                if (quantumPercent >= 100) {
+                    clearInterval(interval);
+                    quantumTime.textContent = 'Done! ⚡';
+                    setTimeout(() => {
+                        if (classicalPercent < 100) {
+                            classicalTime.textContent = 'Still calculating...';
+                        }
+                    }, 1000);
+                }
+            }, 100);
+        }
+
+        function testSendKey() {
+            console.log('Testing send key...');
+            const result = document.getElementById('crypto-result');
+
+            if (isEveActive) {
+                result.textContent = '⚠️ Eavesdropping detected!';
+                result.className = 'result compromised';
+            } else {
+                result.textContent = '✅ Quantum key sent successfully!';
+                result.className = 'result secure';
+            }
+        }
+
+        function testToggleEve() {
+            console.log('Testing toggle eve...');
+            const eve = document.getElementById('eve');
+            const result = document.getElementById('crypto-result');
+
+            isEveActive = !isEveActive;
+            eve.style.display = isEveActive ? 'block' : 'none';
+            result.textContent = isEveActive ? 'Eve is listening...' : 'Channel secure';
+            result.className = 'result';
+        }
+
+        function testScanOrgan(organ) {
+            console.log('Testing scan organ:', organ);
+            const display = document.getElementById('mri-display');
+
+            const organData = {
+                brain: '🧠 Brain scan: Healthy neural activity detected',
+                heart: '❤️ Heart scan: Strong cardiac rhythm detected'
+            };
+
+            display.textContent = organData[organ] || 'Scanning...';
+            display.style.background = '#27ae60';
+
+            setTimeout(() => {
+                display.style.background = '#2c3e50';
+            }, 2000);
+        }
+
+        function testMRIFull() {
+            console.log('Testing full MRI scan...');
+            const display = document.getElementById('mri-display');
+
+            display.textContent = 'Full body scan in progress...';
+            display.style.background = '#f39c12';
+
+            setTimeout(() => {
+                display.textContent = '✅ Full scan complete!';
+                display.style.background = '#27ae60';
+
+                setTimeout(() => {
+                    display.style.background = '#2c3e50';
+                    display.textContent = 'Click an organ';
+                }, 2000);
+            }, 2000);
+        }
+
+        // Test if functions are accessible globally
+        console.log('Functions defined:', {
+            testSpeedDemo: typeof testSpeedDemo,
+            testSendKey: typeof testSendKey,
+            testToggleEve: typeof testToggleEve,
+            testScanOrgan: typeof testScanOrgan,
+            testMRIFull: typeof testMRIFull
+        });
+    </script>
+</body>
+</html>

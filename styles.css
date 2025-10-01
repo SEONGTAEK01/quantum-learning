@@ -917,26 +917,18 @@ body {
     border-radius: 10px;
     overflow: hidden;
     margin: 10px 0;
-}
-
-.progress-bar {
     position: relative;
-    --progress: 0%;
 }
 
-.progress-bar::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
+.progress-fill {
     height: 100%;
-    width: var(--progress);
+    width: 0%;
     background: linear-gradient(45deg, #667eea, #764ba2);
     transition: width 0.1s ease;
     border-radius: 10px;
 }
 
-.quantum .progress-bar::after {
+.quantum .progress-fill {
     background: linear-gradient(45deg, #ff6b6b, #feca57);
 }
 

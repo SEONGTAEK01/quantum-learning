@@ -963,7 +963,9 @@ function simulateNeutronStarMerger() {
     `;
 }
 
-function resetLIGO() {
+// Old complex LIGO demo reset function - not used in simplified version
+/*
+function resetLIGOOld() {
     const horizontalBeam = document.getElementById('horizontal-beam');
     const verticalBeam = document.getElementById('vertical-beam');
     const waveform = document.getElementById('waveform');
@@ -976,24 +978,29 @@ function resetLIGO() {
         detectionInfo.innerHTML = '';
     }
 }
+*/
 
 // Simple Application Demos
 let isEveActive = false;
 
 // Speed Demo - Quantum vs Classical
 function startSpeedDemo() {
+    console.log('Starting speed demo...');
     const classicalProgress = document.getElementById('classical-progress');
     const quantumProgress = document.getElementById('quantum-progress');
     const classicalTime = document.getElementById('classical-time');
     const quantumTime = document.getElementById('quantum-time');
 
-    if (!classicalProgress || !quantumProgress) return;
+    if (!classicalProgress || !quantumProgress) {
+        console.error('Progress elements not found');
+        return;
+    }
 
     // Reset
-    classicalProgress.style.setProperty('--progress', '0%');
-    quantumProgress.style.setProperty('--progress', '0%');
-    classicalTime.textContent = '0s';
-    quantumTime.textContent = '0s';
+    classicalProgress.style.width = '0%';
+    quantumProgress.style.width = '0%';
+    if (classicalTime) classicalTime.textContent = '0s';
+    if (quantumTime) quantumTime.textContent = '0s';
 
     let classicalPercent = 0;
     let quantumPercent = 0;
@@ -1004,19 +1011,19 @@ function startSpeedDemo() {
 
         // Classical computer progresses linearly
         classicalPercent += 1;
-        classicalProgress.style.setProperty('--progress', classicalPercent + '%');
-        classicalTime.textContent = elapsed.toFixed(1) + 's';
+        classicalProgress.style.width = classicalPercent + '%';
+        if (classicalTime) classicalTime.textContent = elapsed.toFixed(1) + 's';
 
         // Quantum computer progresses much faster
         quantumPercent += 8;
-        quantumProgress.style.setProperty('--progress', Math.min(quantumPercent, 100) + '%');
-        quantumTime.textContent = (elapsed * 0.3).toFixed(1) + 's';
+        quantumProgress.style.width = Math.min(quantumPercent, 100) + '%';
+        if (quantumTime) quantumTime.textContent = (elapsed * 0.3).toFixed(1) + 's';
 
         if (quantumPercent >= 100) {
             clearInterval(interval);
-            quantumTime.textContent = 'Done! ⚡';
+            if (quantumTime) quantumTime.textContent = 'Done! ⚡';
             setTimeout(() => {
-                if (classicalPercent < 100) {
+                if (classicalPercent < 100 && classicalTime) {
                     classicalTime.textContent = 'Still calculating...';
                 }
             }, 1000);
@@ -1026,10 +1033,14 @@ function startSpeedDemo() {
 
 // Quantum Cryptography Demo
 function sendQuantumKey() {
+    console.log('Sending quantum key...');
     const photon = document.getElementById('photon');
     const result = document.getElementById('crypto-result');
 
-    if (!photon || !result) return;
+    if (!photon || !result) {
+        console.error('Photon or result element not found');
+        return;
+    }
 
     // Reset photon position
     photon.style.left = '10px';
@@ -1051,8 +1062,12 @@ function sendQuantumKey() {
 }
 
 function toggleEavesdropper() {
+    console.log('Toggling eavesdropper...');
     const eve = document.getElementById('eve');
-    if (!eve) return;
+    if (!eve) {
+        console.error('Eve element not found');
+        return;
+    }
 
     isEveActive = !isEveActive;
     eve.style.display = isEveActive ? 'block' : 'none';
@@ -1066,8 +1081,12 @@ function toggleEavesdropper() {
 
 // MRI Demo
 function scanOrganSimple(organ) {
+    console.log('Scanning organ:', organ);
     const display = document.getElementById('mri-display');
-    if (!display) return;
+    if (!display) {
+        console.error('MRI display element not found');
+        return;
+    }
 
     const organData = {
         brain: '🧠 Brain scan: Neural activity detected. Healthy tissue composition.',
@@ -1084,13 +1103,17 @@ function scanOrganSimple(organ) {
 }
 
 function startMRIDemo() {
+    console.log('Starting MRI demo...');
     const scanLine = document.getElementById('mri-scan-line');
     const display = document.getElementById('mri-display');
 
-    if (!scanLine || !display) return;
+    if (!display) {
+        console.error('MRI display element not found');
+        return;
+    }
 
     display.textContent = 'Full body scan in progress...';
-    scanLine.style.animation = 'scanMove 3s ease-in-out';
+    if (scanLine) scanLine.style.animation = 'scanMove 3s ease-in-out';
 
     setTimeout(() => {
         display.textContent = '✅ Full body scan complete. All organs healthy!';
@@ -1105,11 +1128,15 @@ function startMRIDemo() {
 
 // LIGO Simple Demo
 function simulateCollision() {
+    console.log('Simulating collision...');
     const display = document.getElementById('ligo-display');
     const armH = document.getElementById('ligo-arm-h');
     const armV = document.getElementById('ligo-arm-v');
 
-    if (!display) return;
+    if (!display) {
+        console.error('LIGO display element not found');
+        return;
+    }
 
     display.textContent = 'Detecting gravitational waves...';
     display.style.background = '#f39c12';
@@ -1136,7 +1163,8 @@ function simulateCollision() {
     }, 2000);
 }
 
-function resetLIGOSimple() {
+function resetLIGO() {
+    console.log('Resetting LIGO...');
     const display = document.getElementById('ligo-display');
     const armH = document.getElementById('ligo-arm-h');
     const armV = document.getElementById('ligo-arm-v');
@@ -1152,3 +1180,24 @@ function resetLIGOSimple() {
         armV.style.transform = 'translateX(-50%)';
     }
 }
+
+// Ensure functions are available globally and log their availability
+window.addEventListener('DOMContentLoaded', function() {
+    console.log('DOM loaded. Checking function availability:');
+    console.log('startSpeedDemo:', typeof startSpeedDemo);
+    console.log('sendQuantumKey:', typeof sendQuantumKey);
+    console.log('toggleEavesdropper:', typeof toggleEavesdropper);
+    console.log('scanOrganSimple:', typeof scanOrganSimple);
+    console.log('startMRIDemo:', typeof startMRIDemo);
+    console.log('simulateCollision:', typeof simulateCollision);
+    console.log('resetLIGO:', typeof resetLIGO);
+
+    // Make functions explicitly global (in case of module bundling issues)
+    window.startSpeedDemo = startSpeedDemo;
+    window.sendQuantumKey = sendQuantumKey;
+    window.toggleEavesdropper = toggleEavesdropper;
+    window.scanOrganSimple = scanOrganSimple;
+    window.startMRIDemo = startMRIDemo;
+    window.simulateCollision = simulateCollision;
+    window.resetLIGO = resetLIGO;
+});
