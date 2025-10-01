@@ -969,8 +969,186 @@ function resetLIGO() {
     const waveform = document.getElementById('waveform');
     const detectionInfo = document.getElementById('detection-info');
 
-    horizontalBeam.style.animation = 'none';
-    verticalBeam.style.animation = 'none';
-    waveform.innerHTML = '';
-    detectionInfo.innerHTML = '';
+    if (horizontalBeam && verticalBeam && waveform && detectionInfo) {
+        horizontalBeam.style.animation = 'none';
+        verticalBeam.style.animation = 'none';
+        waveform.innerHTML = '';
+        detectionInfo.innerHTML = '';
+    }
+}
+
+// Simple Application Demos
+let isEveActive = false;
+
+// Speed Demo - Quantum vs Classical
+function startSpeedDemo() {
+    const classicalProgress = document.getElementById('classical-progress');
+    const quantumProgress = document.getElementById('quantum-progress');
+    const classicalTime = document.getElementById('classical-time');
+    const quantumTime = document.getElementById('quantum-time');
+
+    if (!classicalProgress || !quantumProgress) return;
+
+    // Reset
+    classicalProgress.style.setProperty('--progress', '0%');
+    quantumProgress.style.setProperty('--progress', '0%');
+    classicalTime.textContent = '0s';
+    quantumTime.textContent = '0s';
+
+    let classicalPercent = 0;
+    let quantumPercent = 0;
+    let startTime = Date.now();
+
+    const interval = setInterval(() => {
+        const elapsed = (Date.now() - startTime) / 1000;
+
+        // Classical computer progresses linearly
+        classicalPercent += 1;
+        classicalProgress.style.setProperty('--progress', classicalPercent + '%');
+        classicalTime.textContent = elapsed.toFixed(1) + 's';
+
+        // Quantum computer progresses much faster
+        quantumPercent += 8;
+        quantumProgress.style.setProperty('--progress', Math.min(quantumPercent, 100) + '%');
+        quantumTime.textContent = (elapsed * 0.3).toFixed(1) + 's';
+
+        if (quantumPercent >= 100) {
+            clearInterval(interval);
+            quantumTime.textContent = 'Done! ⚡';
+            setTimeout(() => {
+                if (classicalPercent < 100) {
+                    classicalTime.textContent = 'Still calculating...';
+                }
+            }, 1000);
+        }
+    }, 100);
+}
+
+// Quantum Cryptography Demo
+function sendQuantumKey() {
+    const photon = document.getElementById('photon');
+    const result = document.getElementById('crypto-result');
+
+    if (!photon || !result) return;
+
+    // Reset photon position
+    photon.style.left = '10px';
+    photon.style.animation = 'none';
+
+    setTimeout(() => {
+        photon.style.animation = 'movePhoton 2s ease-in-out';
+
+        setTimeout(() => {
+            if (isEveActive) {
+                result.textContent = '⚠️ Eavesdropping detected! Quantum states disturbed.';
+                result.className = 'result compromised';
+            } else {
+                result.textContent = '✅ Quantum key successfully distributed!';
+                result.className = 'result secure';
+            }
+        }, 2000);
+    }, 100);
+}
+
+function toggleEavesdropper() {
+    const eve = document.getElementById('eve');
+    if (!eve) return;
+
+    isEveActive = !isEveActive;
+    eve.style.display = isEveActive ? 'block' : 'none';
+
+    const result = document.getElementById('crypto-result');
+    if (result) {
+        result.textContent = isEveActive ? 'Eve is now listening...' : 'Channel is secure';
+        result.className = 'result';
+    }
+}
+
+// MRI Demo
+function scanOrganSimple(organ) {
+    const display = document.getElementById('mri-display');
+    if (!display) return;
+
+    const organData = {
+        brain: '🧠 Brain scan: Neural activity detected. Healthy tissue composition.',
+        heart: '❤️ Heart scan: Regular rhythm, strong cardiac muscle detected.',
+        lungs: '🫁 Lung scan: Clear airways, normal oxygen exchange detected.'
+    };
+
+    display.textContent = organData[organ] || 'Scanning...';
+    display.style.background = '#27ae60';
+
+    setTimeout(() => {
+        display.style.background = '#2c3e50';
+    }, 3000);
+}
+
+function startMRIDemo() {
+    const scanLine = document.getElementById('mri-scan-line');
+    const display = document.getElementById('mri-display');
+
+    if (!scanLine || !display) return;
+
+    display.textContent = 'Full body scan in progress...';
+    scanLine.style.animation = 'scanMove 3s ease-in-out';
+
+    setTimeout(() => {
+        display.textContent = '✅ Full body scan complete. All organs healthy!';
+        display.style.background = '#27ae60';
+
+        setTimeout(() => {
+            display.style.background = '#2c3e50';
+            display.textContent = 'Click an organ to scan';
+        }, 3000);
+    }, 3000);
+}
+
+// LIGO Simple Demo
+function simulateCollision() {
+    const display = document.getElementById('ligo-display');
+    const armH = document.getElementById('ligo-arm-h');
+    const armV = document.getElementById('ligo-arm-v');
+
+    if (!display) return;
+
+    display.textContent = 'Detecting gravitational waves...';
+    display.style.background = '#f39c12';
+
+    // Simulate arm distortion
+    if (armH && armV) {
+        armH.style.transform = 'translateY(-50%) scaleX(1.02)';
+        armV.style.transform = 'translateX(-50%) scaleY(0.98)';
+
+        setTimeout(() => {
+            armH.style.transform = 'translateY(-50%)';
+            armV.style.transform = 'translateX(-50%)';
+        }, 1000);
+    }
+
+    setTimeout(() => {
+        display.textContent = '🌌 Gravitational wave detected! Black holes collided 1.3 billion years ago!';
+        display.className = 'wave-display wave-detected';
+
+        setTimeout(() => {
+            display.className = 'wave-display';
+            display.style.background = '#34495e';
+        }, 3000);
+    }, 2000);
+}
+
+function resetLIGOSimple() {
+    const display = document.getElementById('ligo-display');
+    const armH = document.getElementById('ligo-arm-h');
+    const armV = document.getElementById('ligo-arm-v');
+
+    if (display) {
+        display.textContent = 'Listening for gravitational waves...';
+        display.className = 'wave-display';
+        display.style.background = '#34495e';
+    }
+
+    if (armH && armV) {
+        armH.style.transform = 'translateY(-50%)';
+        armV.style.transform = 'translateX(-50%)';
+    }
 }
